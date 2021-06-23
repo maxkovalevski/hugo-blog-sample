@@ -1,0 +1,12 @@
+{{ define "content" }}
+<div>
+    <h2>{{ .Title }}</h2>
+    <ul>
+        {{ range where .Site.RegularPages "Type" "blog" }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
