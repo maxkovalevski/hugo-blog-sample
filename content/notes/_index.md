@@ -1,7 +1,7 @@
 ---
-title: "Blog"
+title: "Notes"
 menu: "main"
-weight: 3
+weight: 4
 draft: false
 cascade:
   draft: true

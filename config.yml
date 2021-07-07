@@ -1,3 +1,8 @@
 baseURL: "http://example.org/"
 languageCode: "en-us"
 title: "My New Hugo Site"
+permalinks:
+  posts: /blog/:filename/
+taxonomies:
+  category: categories
+  tag: tags

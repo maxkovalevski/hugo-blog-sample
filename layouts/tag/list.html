@@ -1,0 +1,10 @@
+{{ define "content" }}
+<div>
+  <h2>{{ .Title }}</h2>
+  <ul>
+    {{ range .Site.Taxonomies.tags }}
+            <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
+    {{ end }}
+  </ul>
+</div>
+  {{ end }}

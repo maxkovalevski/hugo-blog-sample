@@ -1,6 +1,12 @@
 {{ define "content" }}
 <div>
-    <h2>Post: {{ .Title }}</h2>
+    <h1>{{ .Title }}</h1>
+    <div>
+        {{ range (.GetTerms "tags") }}
+            <li><a href="{{ .Permalink }}">#{{ .LinkTitle }}</a></li>
+        {{ end }}
+    </div>
+    <div><strong>{{ .Date }}</strong></div>
     <div>{{ .Content }}</div>
 </div>
 {{ end }}

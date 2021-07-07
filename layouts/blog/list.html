@@ -1,12 +1,27 @@
 {{ define "content" }}
 <div>
     <h2>{{ .Title }}</h2>
-    <ul>
-        {{ range where .Site.RegularPages "Type" "blog" }}
-        <li>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-        {{ end }}
-    </ul>
+    <div>
+        <div>
+            {{ $paginator := .Paginate (where .Pages "Section" "blog") }}
+            {{ range $paginator.Pages }}
+            <article>
+                <div>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    <div>
+                        {{ range (.GetTerms "tags") }}
+                            <li><a href="{{ .Permalink }}">#{{ .LinkTitle }}</a></li>
+                        {{ end }}
+                    </div>
+                </div>
+                <div>
+                    {{ .Summary }}
+                    <a href="{{ .RelPermalink }}">Read More…</a>
+                </div>
+            </article>
+            {{ end }}
+            {{ template "_internal/pagination.html" . }}
+        </div>
+    </div>
 </div>
 {{ end }}
